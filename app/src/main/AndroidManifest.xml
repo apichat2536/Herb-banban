@@ -19,7 +19,8 @@
         </activity>
         <activity android:name=".SignUpActivity" />
         <activity android:name=".HubActivity" />
-        <activity android:name=".ReadAllHerbActivity"></activity>
+        <activity android:name=".ReadAllHerbActivity" />
+        <activity android:name=".HerbListView"></activity>
     </application>
 
 </manifest>

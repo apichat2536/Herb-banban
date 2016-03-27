@@ -226,6 +226,11 @@ public class MainActivity extends AppCompatActivity {
             if (passwordString.equals(resultStrings[2])) {
                 Toast.makeText(this,"ยินดีต้อนรับ"+resultStrings[4],Toast.LENGTH_LONG).show();
 
+                Intent intent = new Intent(this,ReadAllHerbActivity.class);
+                intent.putExtra("Data", resultStrings);
+                startActivity(intent);
+                finish();
+
             } else {
                 MyAlertDialog myAlertDialog = new MyAlertDialog();
                 myAlertDialog.myDialog(this, "Password False", "กรุณากรอก Password ใหม่");
@@ -247,8 +252,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void clickGuest(View view) {
-        startActivity(new Intent(MainActivity.this,
-                ReadAllHerbActivity.class));
+        Intent intent = new Intent(this, HerbListView.class);
+        intent.putExtra("Status", "1");
+        startActivity(intent);
+
     }
 
 }   // Main Class

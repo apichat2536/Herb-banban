@@ -19,7 +19,22 @@ public class MainActivity extends AppCompatActivity {
 
         //การรีเคส ขอใช้ฐาน
         myManage = new MyManage(MainActivity.this);
+        //เทส แอด แวรุ
+        testAddValue();
+
     }   // Main Method
+
+    private void testAddValue() {
+        int intTime = 0;
+        while (intTime<=1) {
+
+            myManage.addValueToSQLite(intTime, "test1", "test2", "test3",
+                    "test4", "test5", "test6", "test7");
+
+            intTime += 1;
+
+        }
+    }
 
     public void clickSignInMain(View view) {
 

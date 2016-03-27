@@ -75,6 +75,11 @@ public class DetailActivity extends FragmentActivity implements OnMapReadyCallba
         mMap = googleMap;
 
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(centerLatLng,12));
+        mMap.addMarker(new MarkerOptions()
+                .position(centerLatLng)
+                .title(nameString)
+                .snippet(descripString));
+
 
 
 

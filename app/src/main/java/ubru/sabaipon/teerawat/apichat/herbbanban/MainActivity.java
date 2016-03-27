@@ -7,10 +7,18 @@ import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
+    //ประกาศตัวแปร
+    private MyManage myManage;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        //การรีเคส ขอใช้ฐาน
+        myManage = new MyManage(MainActivity.this);
     }   // Main Method
 
     public void clickSignInMain(View view) {

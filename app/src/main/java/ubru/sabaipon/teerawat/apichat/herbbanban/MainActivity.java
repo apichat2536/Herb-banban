@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -24,12 +25,18 @@ public class MainActivity extends AppCompatActivity {
 
     //ประกาศตัวแปร
     private MyManage myManage;
-
+    private EditText userEditText, passwordEiditText;
+    private String userString, passwordString;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //บายวิเกต
+        userEditText = (EditText) findViewById(R.id.editText);
+        passwordEiditText = (EditText) findViewById(R.id.editText2);
+
 
 
         //การรีเคส ขอใช้ฐาน
@@ -45,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
         synJSON();
 
     }   // Main Method
+
 
     private void synJSON() {
 
@@ -181,7 +189,20 @@ public class MainActivity extends AppCompatActivity {
 
     public void clickSignInMain(View view) {
 
-    }
+        userString = userEditText.getText().toString().trim();
+        passwordString = passwordEiditText.getText().toString().trim();
+
+        //การเชคความว่างเปล่า
+
+        if (userString.equals("") || passwordString.equals("")) {
+            MyAlertDialog myAlertDialog = new MyAlertDialog();
+            myAlertDialog.myDialog(this,"มีช่องว่าง","กรุณากรอกทุกช่อง จร๊");
+
+        } else {
+
+        }
+
+    }//ล๊อคอิน
 
     public void clickSignUpMain(View view) {
         startActivity(new Intent(MainActivity.this,

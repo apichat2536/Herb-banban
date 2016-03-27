@@ -20,6 +20,9 @@ public class DetailActivity extends FragmentActivity implements OnMapReadyCallba
             descripString, howtoString, latString, lngString;
     private TextView nameTextView, descripTextView, howtoTextView;
     private ImageView imageView;
+    private double latADouble, lngADouble;
+    private LatLng centerLatLng;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +47,12 @@ public class DetailActivity extends FragmentActivity implements OnMapReadyCallba
         latString = getIntent().getStringExtra("Lat");
         lngString = getIntent().getStringExtra("Lng");
 
+        latADouble = Double.parseDouble(latString);
+        lngADouble = Double.parseDouble(lngString);
+        centerLatLng = new LatLng(latADouble, lngADouble);
+
+
+
         nameTextView.setText(nameString);
         Picasso.with(DetailActivity.this).load(imageString).resize(200,200).into(imageView);
         descripTextView.setText(descripString);
@@ -65,9 +74,9 @@ public class DetailActivity extends FragmentActivity implements OnMapReadyCallba
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(centerLatLng,12));
+
+
+
     }//ออนแมบ
 }//เมนคลาส

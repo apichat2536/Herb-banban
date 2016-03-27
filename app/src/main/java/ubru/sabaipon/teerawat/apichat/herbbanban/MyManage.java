@@ -39,6 +39,11 @@ public class MyManage {
 
     }//คอนเชสเตอ
 
+
+
+
+
+
     public long addValueToSQLite(int intTABLE,
                                  String strColumn1,
                                  String strColumn2,

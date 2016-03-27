@@ -1,9 +1,12 @@
 package ubru.sabaipon.teerawat.apichat.herbbanban;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 public class HerbListView extends AppCompatActivity {
@@ -34,6 +37,15 @@ public class HerbListView extends AppCompatActivity {
         HerbAdapter herbAdapter = new HerbAdapter(this, imageStrings, nameStrings);
         ListView herbListView = (ListView) findViewById(R.id.listView);
         herbListView.setAdapter(herbAdapter);
+
+        herbListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(HerbListView.this,DetailActivity.class);
+                startActivity(intent);
+
+            }//
+        });
 
 
     }   // Main Method

@@ -4,13 +4,21 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 public class ReadAllHerbActivity extends AppCompatActivity {
+    //Explcit
+
+    private String[] myResultStrings;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_read_all_herb);
+
+        myResultStrings = getIntent().getStringArrayExtra("Data");
+
+
     }//เมนเมสตอส
 
     public void clickReadAll(View view) {
@@ -21,10 +29,19 @@ public class ReadAllHerbActivity extends AppCompatActivity {
     }
     public void clickUpdate(View view) {
 
+        startActivity(new Intent(this, UpdateHerb.class));
+
 
     }
 
     public void clickApprove(View view) {
+        if (myResultStrings[3].equals("0")) {
+            startActivity(new Intent(this, ApproveHerb.class));
+
+        } else {
+
+            Toast.makeText(this, "คุณไม่มีสิทธิ์เข้าถึงข้อมูล", Toast.LENGTH_SHORT).show();
+        }
 
 
     }
